@@ -14,26 +14,66 @@
 <body>
 
   <div class="container">
+
+    <div id="show_errors" style="display : none">
+      <ul id="list_errors">
+      </ul>
+    </div>
     
     <div class="jumbotron">
       <h1 class="display-4">Test URL</h1>
       <p class="lead">Teste url dos produtos da arezzo.</p>
     </div>
       
-    <form method="post" action="/image">
+    <form method="post" action="/image" name="image" id="image" onsubmit="return checkForm()">
       <div class="form-group">
         <label for="image_hash">Entre com o texto da imagem encriptada</label>
         <textarea class="form-control" id="image_hash" rows="3" name="image_hash"></textarea>
       </div>
       <div class="form-group">
         <label for="url">Url do Produto</label>
-        <input type="text" class="form-control" id="url" name="url" placeholder="Digite a chave secreta">
+        <input type="url" class="form-control" id="url" name="url" placeholder="Digite a url do produto">
       </div>
       
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    
+    function checkForm()
+    {
+      document.getElementById('show_errors').style.display = 'none'; 
+      var hash = document.getElementById('image_hash').value;
+      var url = document.getElementById('url').value;
+
+      errors = [];
+
+      if(!hash)
+      {
+        errors.push("Campo imagem encriptada é inválido");
+      }
+
+      if(!url)
+      {
+        errors.push("URL do produto é inválida.");
+      }
+
+      if(errors.length > 1)
+      {
+        document.getElementById('show_errors').style.display = 'block';
+        errors.forEach(print_error);
+        return false;
+      }
+    }
+
+    function print_error(value)
+    {
+      document.getElementById('list_errors').innerHTML += "<li>"+value+"</li>";
+    }
+  </script>
 
 </body>
 </html>
+
