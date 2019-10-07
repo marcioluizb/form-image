@@ -46,7 +46,12 @@ app.post('/image', urlencodedParser, function(req, res){
 
   const encodedImage = decrypt(KEY, encriypedAndEncodedImage);
   decode_base64(encodedImage, './assets/images/original_image.png');
-  res.render('result.ejs', {data: true});
+
+  var image = fs.readFileSync('./assets/images/original_image.png');
+  response_image = false;
+  if(image.length > 1000)
+    response_image = true;
+  res.render('result.ejs', {data: response_image});
 });
 
 http.listen(port, function(){

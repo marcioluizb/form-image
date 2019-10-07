@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <title>Test</title>
-
 </head>
 <body>
 
   <div class="container">
-
-    <div id="show_errors" style="display : none">
-      <ul id="list_errors">
-      </ul>
-    </div>
-    
     <div class="jumbotron">
       <h1 class="display-4">Test URL</h1>
       <p class="lead">Teste url dos produtos da arezzo.</p>
     </div>
-      
+    <div id="show_errors" style="display : none">
+      <ul id="list_errors">
+      </ul>
+    </div>
     <form method="post" action="/image" name="image" id="image" onsubmit="return checkForm()">
       <div class="form-group">
         <label for="image_hash">Entre com o texto da imagem encriptada</label>
@@ -37,42 +31,9 @@
       
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
-
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-    
-    function checkForm()
-    {
-      document.getElementById('show_errors').style.display = 'none'; 
-      var hash = document.getElementById('image_hash').value;
-      var url = document.getElementById('url').value;
-
-      errors = [];
-
-      if(!hash)
-      {
-        errors.push("Campo imagem encriptada é inválido");
-      }
-
-      if(!url)
-      {
-        errors.push("URL do produto é inválida.");
-      }
-
-      if(errors.length > 1)
-      {
-        document.getElementById('show_errors').style.display = 'block';
-        errors.forEach(print_error);
-        return false;
-      }
-    }
-
-    function print_error(value)
-    {
-      document.getElementById('list_errors').innerHTML += "<li>"+value+"</li>";
-    }
-  </script>
+ 
+ <script src="assets/javascript/validation.js"></script>
 
 </body>
 </html>
