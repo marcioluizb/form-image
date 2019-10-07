@@ -1,1 +1,39 @@
-ola mundo
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Test</title>
+
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="jumbotron">
+      <h1 class="display-4">Test URL</h1>
+      <p class="lead">Teste url dos produtos da arezzo.</p>
+    </div>
+      
+    <form method="post" action="/image">
+      <div class="form-group">
+        <label for="image_hash">Entre com o texto da imagem encriptada</label>
+        <textarea class="form-control" id="image_hash" rows="3" name="image_hash"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="url">Url do Produto</label>
+        <input type="text" class="form-control" id="url" name="url" placeholder="Digite a chave secreta">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
